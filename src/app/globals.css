@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ───────────────────────────────────────────────
+     VELVE · Quiet Luxury palette
+     LIGHT — bone, ink, deep aubergine
+     ─────────────────────────────────────────────── */
+  :root {
+    --background: 36 25% 96%;        /* bone */
+    --foreground: 280 18% 12%;       /* deep ink with violet undertone */
+
+    --card: 36 30% 98%;
+    --card-foreground: 280 18% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 18% 12%;
+
+    --primary: 290 35% 24%;          /* deep aubergine */
+    --primary-foreground: 36 30% 98%;
+
+    --secondary: 32 22% 91%;
+    --secondary-foreground: 280 18% 12%;
+
+    --muted: 32 18% 92%;
+    --muted-foreground: 280 8% 38%;
+
+    --accent: 18 60% 88%;             /* soft blush */
+    --accent-foreground: 280 18% 12%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 32 18% 86%;
+    --input: 32 18% 86%;
+    --ring: 290 35% 24%;
+
+    /* Section tokens (used in marketing sections) */
+    --surface-elevated: 32 25% 94%;   /* hero / soft panels */
+    --surface-inverse: 280 18% 10%;   /* footer / dark sections */
+    --surface-inverse-foreground: 36 30% 95%;
+    --surface-feature: 290 28% 18%;   /* manifesto card */
+    --surface-feature-foreground: 36 30% 95%;
+    --rule-on-inverse: 36 30% 95%;
+
+    --radius: 0.625rem;
+  }
+
+  /* ───────────────────────────────────────────────
+     DARK — midnight aubergine, champagne, dusty rose
+     Aesthetic, gallery-grade, warm — not flat black
+     ─────────────────────────────────────────────── */
+  .dark {
+    --background: 285 22% 7%;          /* midnight aubergine */
+    --foreground: 36 28% 92%;          /* warm champagne */
+
+    --card: 286 18% 11%;
+    --card-foreground: 36 28% 92%;
+
+    --popover: 286 18% 11%;
+    --popover-foreground: 36 28% 92%;
+
+    --primary: 14 70% 78%;             /* dusty rose / blush */
+    --primary-foreground: 285 22% 7%;
+
+    --secondary: 285 14% 17%;
+    --secondary-foreground: 36 28% 92%;
+
+    --muted: 285 14% 16%;
+    --muted-foreground: 32 12% 70%;
+
+    --accent: 290 26% 24%;             /* deeper aubergine accent */
+    --accent-foreground: 36 28% 92%;
+
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 286 14% 22%;
+    --input: 286 14% 22%;
+    --ring: 14 70% 78%;
+
+    /* Section tokens flip in dark mode */
+    --surface-elevated: 286 22% 10%;          /* hero gets deeper */
+    --surface-inverse: 36 28% 92%;            /* footer becomes light */
+    --surface-inverse-foreground: 285 22% 8%; /* …with dark text */
+    --surface-feature: 286 24% 14%;           /* manifesto stays brand-feel */
+    --surface-feature-foreground: 36 28% 92%;
+    --rule-on-inverse: 285 22% 8%;
+  }
+
+  * { @apply border-border; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11", "calt", "ligatures";
+  }
+
+  ::selection { background-color: hsl(var(--primary) / 0.30); }
+
+  /* Editorial helpers */
+  .editorial-headline {
+    font-family: var(--font-display), Georgia, serif;
+    font-feature-settings: "ss01", "ss02", "salt";
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+  }
+  .editorial-italic { font-style: italic; font-feature-settings: "salt"; }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Subtle film grain on featured sections */
+  .grain { position: relative; }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .dark .grain::after { opacity: 0.06; mix-blend-mode: overlay; }
+}
+
+@layer utilities {
+  /* Theme-aware section surfaces */
+  .surface-elevated   { background-color: hsl(var(--surface-elevated)); }
+  .surface-inverse    { background-color: hsl(var(--surface-inverse)); color: hsl(var(--surface-inverse-foreground)); }
+  .surface-feature    { background-color: hsl(var(--surface-feature)); color: hsl(var(--surface-feature-foreground)); }
+  .text-on-inverse    { color: hsl(var(--surface-inverse-foreground)); }
+  .border-on-inverse  { border-color: hsl(var(--rule-on-inverse) / 0.20); }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 36s linear infinite; }
+}

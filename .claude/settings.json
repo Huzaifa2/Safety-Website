@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/products)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/products/ultra-thin-classic)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/cart)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/checkout)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; Get-NetTCPConnection -LocalPort 3001 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; \"freed\")",
+      "Bash(curl -s -o /dev/null -w \"/ HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"/products HTTP %{http_code}\\\\n\" http://localhost:3000/products)",
+      "Bash(curl -s -o /dev/null -w \"/products/ultra-thin-classic HTTP %{http_code}\\\\n\" http://localhost:3000/products/ultra-thin-classic)",
+      "Bash(curl -s -o /dev/null -w \"/products HTTP %{http_code}\\\\n\" \"http://localhost:3000/products\")",
+      "Bash(curl -s -o /dev/null -w \"/products?category=condoms HTTP %{http_code}\\\\n\" \"http://localhost:3000/products?category=condoms\")",
+      "Bash(curl -s -o /dev/null -w \"PDP HTTP %{http_code}\\\\n\" \"http://localhost:3000/products/ribbed-intensity\")",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; \"ok\")",
+      "Bash(curl -s -o /dev/null -w \"/favicon.svg HTTP %{http_code}\\\\n\" http://localhost:3000/favicon.svg)",
+      "Bash(curl -s -o /dev/null -w \"/subscribe HTTP %{http_code}\\\\n\" http://localhost:3000/subscribe)",
+      "Bash(curl -s -o /dev/null -w \"/journal HTTP %{http_code}\\\\n\" http://localhost:3000/journal)",
+      "Bash(curl -s -o /dev/null -w \"/journal/[slug] HTTP %{http_code}\\\\n\" http://localhost:3000/journal/what-discreet-actually-means)",
+      "Bash(gh auth *)",
+      "Bash(vercel --version)",
+      "Bash(vercel whoami *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.email=\"huzaifavirk967@users.noreply.github.com\" -c user.name=\"Huzaifa\" commit -m \"feat: VELVE intimate wellness storefront — UI/UX demo\")"
+    ]
+  }
+}
