@@ -30,3 +30,5 @@ lerna-debug.log*
 coverage/
 .next-types/
 next-env.d.ts
+
+.vercel

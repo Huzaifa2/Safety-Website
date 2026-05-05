@@ -12,8 +12,7 @@ twelve products, full subscription flow, and a magazine-style journal.
 
 ## Live demo
 
-After Vercel deploy, available at: `https://safety-website.vercel.app`
-(URL will be confirmed once the deploy completes).
+**[velve-wellness.vercel.app](https://velve-wellness.vercel.app)**
 
 ---
 
